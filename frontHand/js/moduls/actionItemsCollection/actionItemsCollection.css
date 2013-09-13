@@ -1,0 +1,144 @@
+.singleAction{
+	margin-top: 3px;
+	margin-bottom: 3px;
+	width: 33%;
+	position: relative;
+}
+
+.singleAction .actionName{
+	font-size: 22px;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.3);
+	padding: 12px;
+	overflow: hidden;
+}
+
+.singleAction .actionContent{
+	height: 65px;
+	overflow: auto;
+	padding: 12px;
+	font-size: 16px;
+	transition: height 0.5s, padding 0.5s;
+	-webkit-transition: height 0.5s, padding 0.5s;
+}
+
+.singleAction .actionAssign{
+	height: 16px;
+	overflow: hidden;
+	font-style: italic;
+	padding: 12px;
+	transition: height 0.5s, padding 0.5s;
+	-webkit-transition: height 0.5s, padding 0.5s;
+}
+
+/*COMPRESS*/
+.singleAction.compress .actionContent{
+	transition: height 0.5s, padding 0.5s;
+	-webkit-transition: height 0.5s, padding 0.5s;
+	height: 0px;
+	padding: 0px;
+	overflow: hidden;
+}
+.singleAction.compress .actionAssign{
+	transition: height 0.5s, padding 0.5s;
+	-webkit-transition: height 0.5s, padding 0.5s;
+	height: 0px;
+	padding: 0px;
+	overflow: hidden;
+}
+/*COMPRESS END*/
+
+/*NS*/
+.singleAction.NS .actionName{
+	background-color: #FEA28B;
+}
+
+.singleAction.NS .actionContent,
+.singleAction.NS .actionAssign{
+	background-color: #FDB1A1;
+}
+
+.singleAction.NS{
+	margin-left: 0%;
+}
+/*NS END*/
+
+/*IP*/
+.singleAction.IP .actionName{
+	background-color: #FFC43A;
+}
+
+.singleAction.IP .actionContent,
+.singleAction.IP .actionAssign{
+	background-color: #FFD579;
+}
+
+.singleAction.IP{
+	margin-left: 33.5%;
+}
+/*IP END*/
+
+/*DN*/
+.singleAction.DN .actionName{
+	background-color: #91D697;
+}
+
+.singleAction.DN .actionContent,
+.singleAction.DN .actionAssign{
+	background-color: #BEFFD7;
+}
+
+.singleAction.DN{
+	margin-left: 67%;
+}
+/*DN END*/
+
+/*ICONS*/
+.singleAction .icons{
+	position: absolute;
+	top: 10px;
+	right: 5px;
+	/*display: none;*/
+	font-size: 28px;
+}
+
+.singleAction .icons .menuController{
+	cursor: pointer;
+	font-size: 24px;
+	display: inline-block;
+	color: #485e5c;
+}
+
+.singleAction .icons .menuController:hover{
+	color: #397371;
+}
+/*ICONS END*/
+
+#actionItemCollection{
+	height:98%;
+	overflow: auto;
+	padding: 10px;
+}
+
+
+.actionContent::-webkit-scrollbar-track{
+	background-color: #eee;
+}
+
+.actionContent::-webkit-scrollbar{
+	width: 1px;
+	background-color: #eee;
+}
+
+.actionContent::-webkit-scrollbar-thumb{
+	background-color: #999;
+}
+
+.singleAction.NS .left{
+	display: none;
+}
+
+.singleAction.DN .right{
+	display: none;
+}
+
+

@@ -1,0 +1,37 @@
+#dialog #actionContent{
+	width:95%;
+}
+#dialog #actionAssignName{
+	width:95%;
+}
+
+#dialog .modal{
+	border-radius: 0px;
+}
+
+#dialog .modal .modal-header{
+	background: url("../../../media/menuBG.png");
+	color: white;
+}
+
+#dialog .modal .modal-footer{
+	background-color: #d9e1e3;
+}
+
+#dialog .modal .dialogBtn{
+	cursor: pointer;
+	font-size: 18px;
+}
+
+#dialog .modal .dialogBtn:hover{
+	color: #82abad;
+}
+
+
+#dialog .modal .dialogSpacer{
+	font-size: 18px;
+}
+
+
+
+

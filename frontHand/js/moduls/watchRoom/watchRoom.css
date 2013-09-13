@@ -1,0 +1,44 @@
+#actionitems{
+	height:100%;
+}
+
+#roomToolbar{
+	background-color: #ddd;
+	padding: 15px;
+	/*height: 43px;*/
+
+	-webkit-box-shadow:  5px 0px 10px 0px rgba(0, 0, 0, .2);
+	box-shadow:  5px 0px 10px 0px rgba(0, 0, 0, .2);
+}
+
+#changeWorkspace{
+	float: right;
+}
+
+#actionItemCollection::-webkit-scrollbar-track{
+	background-color: #F5F5F5;
+}
+
+#actionItemCollection::-webkit-scrollbar{
+	width: 5px;
+	background-color: #F5F5F5;
+}
+
+#actionItemCollection::-webkit-scrollbar-thumb{
+	background-color: #AAA;
+}
+
+
+@media screen and (max-width: 700px){
+	#roomNameSpan {
+		display: none;
+	}
+
+	#addActionSpan{
+		display: none
+	}
+
+	#changeWorkspace .title{
+		display: none;
+	}
+}

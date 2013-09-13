@@ -1,0 +1,8 @@
+.initMenuItem:after{ 
+	content: " |"
+}
+
+.initMenuItem:last-child:after{ 
+	content: ""
+}
+

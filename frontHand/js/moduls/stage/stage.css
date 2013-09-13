@@ -1,0 +1,303 @@
+.stageScreen .actionitems {
+	font-size: 60px;
+	padding: 20px;
+	margin-top: 100px;
+}
+
+.stageScreen.stage {
+}
+
+.stageScreen .trademark {
+	font-size: 16px;
+}
+
+#initMenu {
+	text-align: right;
+	font-size: 12px;
+}
+
+.stageScreen .msg {
+	color: red;
+	margin-top: 20px;
+}
+
+#menu {
+	width: 100%;
+	overflow: hidden;
+
+	background: url("../../../media/menuBG.png");
+	height: 120px;
+
+	-webkit-box-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 1);
+    box-shadow:  0px 0px 10px 0px rgba(0, 0, 0, 1);
+
+    position: relative;
+    z-index: 100;
+
+}
+
+#menu hr {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+/* ITEMS */
+
+#items{
+	width:80%;
+	float: right;
+
+	transition: width 0.5s;
+	-webkit-transition: width 0.5s;
+}
+
+.remove #items{
+	width:100%;
+}
+
+/* ITEMS END*/
+
+body {
+	overflow: hidden;
+	font-family: 'Roboto', sans-serif;
+}
+
+#logo {
+	font-size: 32px;
+	display: inline-block;
+	float: left;
+	width: 20%;
+	text-align: center;
+	color: white;
+	font-size: 38px;
+	position: relative;
+	top: 40%;
+}
+
+#verticalGraphic{
+	float: left;
+	height: 80%;
+	border-left: 1px solid white;
+	position: relative;
+	top: 10%;
+	opacity: 0.4;
+}
+
+.disable {
+	opacity: 0.5;
+}
+
+/* MENU BUTTONS */
+
+.menuBtn{
+	cursor: pointer;
+	margin-right: 2em;
+}
+
+.menuBtn.disable{
+	cursor: default;
+}
+
+.menuBtn:hover {
+	opacity: 0.7;
+}
+
+.menuBtn.disable:hover {
+	opacity: 0.5;
+}
+
+/* ADD ACTION BUTTON*/
+#addActionbtn{
+	float: left;
+	top: 30%;
+	left: 1em;
+	position: relative;
+}
+
+#addActionIcon{
+	float: left;
+	font-size: 3.5em;
+	-moz-transform:rotate(45deg);  
+	-webkit-transform:rotate(45deg);  
+	-o-transform:rotate(45deg);  
+	-ms-transform:rotate(45deg);  
+	color: white;
+}
+
+
+#addActionTitle{
+	float: left;
+	color: white;
+	font-size: 1.1em;
+	position: relative;
+	top: 15px;
+}
+/* ADD ACTION BUTTON END */
+
+/* EDIT ROOM BUTTON*/
+#editRoombtn{
+	float: left;
+	top: 30%;
+	position: relative;
+}
+
+#editRoomIcon{
+	float: left;
+	font-size: 3.5em;
+	color: white;
+}
+
+
+#editRoomTitle{
+	float: left;
+	color: white;
+	font-size: 1.1em;
+	position: relative;
+	top: 15px;
+}
+/* EDIT ROOM BUTTON END */
+
+
+/* ZOOM ROOM BUTTON*/
+#zoomBtn{
+	float: left;
+	top: 30%;
+	position: relative;
+}
+
+#zoomIcon{
+	float: left;
+	font-size: 3.5em;
+	color: white;
+}
+
+
+#zoomTitle{
+	float: left;
+	color: white;
+	font-size: 1.1em;
+	position: relative;
+	top: 15px;
+}
+/* ZOOM ROOM BUTTON END */
+
+
+/* COMPRESS BUTTON*/
+#compressBtn{
+	float: left;
+	top: 30%;
+	position: relative;
+}
+
+#compressIcon{
+	float: left;
+	font-size: 3.5em;
+	color: white;
+}
+
+
+#compressTitle{
+	float: left;
+	color: white;
+	font-size: 1.1em;
+	position: relative;
+	top: 15px;
+}
+/* COMPRESS BUTTON END */
+
+#myModal #msg{
+	color: red;
+	height:20px;
+}
+
+.roomCollection{
+	overflow: auto;
+}
+
+/* USER */
+#user{
+	color: white;
+	float: right;
+	margin-right: 2em;
+	position: relative;
+	top: 2em;
+}
+
+#userName{
+	font-size: 20px;
+}
+
+a.userHref:hover{
+	color: white;
+	opacity: 0.5;
+	text-decoration: none;
+}
+a.userHref:active{
+	color: white;
+}
+a.userHref:link{
+	color: white;
+}
+a.userHref:visited{
+	color: white;
+}
+
+
+/* USER END*/
+
+
+@media screen and (max-width: 1150px){
+	#addActionTitle {
+		display: none;
+	}
+	#editRoomTitle {
+		display: none;
+	}
+	#zoomTitle {
+		display: none;
+	}
+	#compressTitle {
+		display: none;
+	}
+	#logo{
+		font-size: 2em;
+	}
+}
+
+@media screen and (max-width: 780px){
+	#logo{
+		line-height: 30px;
+		top: 27%;
+	}
+}
+
+@media screen and (max-width: 720px){
+
+	#addActionIcon,
+	#editRoomIcon,
+	#zoomIcon,
+	#compressIcon{
+		font-size: 2.5em;
+	}
+
+	#addActionbtn,
+	#editRoombtn,
+	#zoomBtn,
+	#compressBtn{
+		top: 37%;
+	}
+
+	.roomTitle {
+		left: -20px;
+	}
+}
+
+@media screen and (max-width: 600px){
+
+	#user{
+		display: none;
+	}
+}
+
+
+
+

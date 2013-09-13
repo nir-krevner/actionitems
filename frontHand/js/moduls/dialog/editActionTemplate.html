@@ -1,0 +1,26 @@
+<div class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>edit action</h3>
+  </div>
+  <div class="modal-body">
+  	<form id="dialog_form">
+      <div class="dialogLabel">name</div>
+      <input type="text" id="actionName" value="{{actionName}}"/>
+
+      <div class="dialogLabel">content</div>
+      <textarea id="actionContent" rows="4" cols="50">{{actionContent}}</textarea><br/>
+
+      <div class="dialogLabel">assign</div>
+
+
+      <input type="text" id="actionAssignName" value="{{actionAssignName}}"/><br/>
+      <input type="hidden" id="actionAssignId" value="{{actionAssignId}}"/>
+
+   </form>
+  </div>
+  <div class="modal-footer">
+    <span class="dialogBtn" id="dialog_close">Close</span>&nbsp;&nbsp;<span class="dialogSpacer">|</span>&nbsp;
+    <span class="dialogBtn" id="dialog_save">Save</span>
+  </div>
+</div>

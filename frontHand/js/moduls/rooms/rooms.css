@@ -1,0 +1,98 @@
+/* ROOMS LIST */
+#rooms{
+	width: 20%;
+	border-right: 1px solid #ccc;
+	margin-right: -1px;
+	height: 100%;
+	float: left;
+	position: absolute;
+
+	transition: left 0.5s, position 0.5s;
+	-webkit-transition: left 0.5s, position 0.5s;
+}
+
+.remove #rooms {
+	left: -20%;
+	position: absolute;
+}
+/* ROOMS LIST END */
+
+.room {
+	position: relative;
+	z-index: 50;
+	margin-bottom: 1px;
+	width: 100%;
+	height: 70px;
+	text-align: left;
+	display: inline-block;
+	cursor: pointer;
+	background-color: #d9e1e3;
+
+	overflow: hidden;
+
+	font-size: 16px;
+}
+
+.room:hover{
+	background-color: #cdd4d6;
+}
+
+.room.selected{
+	background-color: #82abad;
+}
+
+.roomTitle{
+	margin-left: 1.7em;
+	position: relative;
+	top: 1.4em;
+}
+
+/* ADD ROOM BUTTON */
+
+#addRoom{
+	text-align: center;
+	padding: 10px;
+	cursor: pointer;
+}
+
+#addRoom:hover{
+	opacity: 0.5;
+}
+
+#addRoomIcon{
+	-moz-transform:rotate(45deg);  
+	-webkit-transform:rotate(45deg);  
+	-o-transform:rotate(45deg);  
+	-ms-transform:rotate(45deg);
+	font-size: 2.5em;
+	display: inline-block;
+}
+
+/* ADD ROOM BUTTON END */
+
+.roomCollection::-webkit-scrollbar-track
+{
+	/*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*/
+	background-color: #d1d1d1;
+	/*border-radius: 10px;*/
+}
+
+.roomCollection::-webkit-scrollbar
+{
+	width: 1px;
+	background-color: #F5F5F5;
+}
+
+.roomCollection::-webkit-scrollbar-thumb
+{
+	background-color: #AAA;
+	background-image: -webkit-linear-gradient(90deg,
+	                                          rgba(0, 0, 0, .2) 25%,
+											  rgba(0, 0, 0, .2) 50%,
+											  rgba(0, 0, 0, .2) 75%,
+											)
+}
+
+.myRoom{
+
+}

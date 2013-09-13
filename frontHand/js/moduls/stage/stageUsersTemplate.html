@@ -1,0 +1,27 @@
+<div id="usersHeader">
+	<hr/>
+	<div id="usersTitle">users</div>
+	<a class="btn" id="addUser"><i class="icon-plus"></i> add user</a>
+
+	<hr/>
+</div>
+
+<div id="usersControls" class="btn-group">
+  <button class="btn btn"><i class="icon-user"></i> {{userDisplay}}</button>
+  <button class="btn btn" id="logout">logout</button>
+</div>
+
+<div id="userTableWrapper">
+	<table class="usersTable">
+		<tr>
+			<td>name</td>
+			<td>email</td>
+		</tr>
+		{{#users}}
+			<tr>
+				<td>{{name}}</td>
+				<td>{{email}}</td>
+			</tr>
+		{{/users}}
+	</table>
+</div>

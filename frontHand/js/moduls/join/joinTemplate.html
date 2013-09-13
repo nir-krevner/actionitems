@@ -1,0 +1,32 @@
+<div class="join joinScreen">
+
+	{{^addMode}}
+	<div id="initMenu"/>
+	{{/addMode}}
+	
+	<div class="actionitems">action items<sup><span class='trademark'>TM</span></sup></div><br/>
+	
+	{{^addMode}}
+	about your company<br/>
+	<input id="companyName" type="text" placeholder="company name" /><br/><br/>
+
+	about you<br/>
+	{{/addMode}}
+
+	<input id="name" type="text" placeholder="name" /><br/>
+	<input id="email" type="text" placeholder="email" /><br/>
+	<input id="password1" type="password" placeholder="password" /><br/>
+	<input id="password2" type="password" placeholder="confirm password" /><br/>
+
+	<div class="joinLinks">
+		{{^addMode}}
+		<a href="#" onclick="return false" id="submitJoin">add a new company to action items</a>
+		{{/addMode}}
+		{{#addMode}}
+		<a href="#" onclick="return false" id="submitAdd">add user</a>
+		{{/addMode}}
+	</div>
+
+	<div id="msg"/>
+
+</div>
