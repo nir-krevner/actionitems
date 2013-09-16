@@ -1,0 +1,17 @@
+{
+  "name": "action-items",
+  "version": "0.0.1",
+  "private": true,
+  "description" : "action items app",
+  "scripts": {
+  	"start": "node server.js"
+  },
+  "dependencies": {
+    "express": "*",
+    "socket.io": "*",
+    "underscore": "*",
+    "mongodb": "*",
+    "nodemailer": "*"
+  },
+  "engines" : { "npm" : "*" } 
+}

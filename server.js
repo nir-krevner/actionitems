@@ -7,8 +7,8 @@ var express = require('express');
 
 // get port and host config
 var config = JSON.parse(fs.readFileSync('config.json'));
-var host = config.host;
-var port = config.port;
+var host = process.env.HOST || config.host;
+var port = process.env.PORT || config.port;
 
 // listen
 server.listen(port, host);
