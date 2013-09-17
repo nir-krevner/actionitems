@@ -1,8 +1,10 @@
 define(['jquery', 'underscore', 'backbone', 'joinModulView'], 
 	function($, _, Backbone, joinModulView) {
 
-	// var localhost = "217.132.95.179";
-	var localhost = "localhost";
+	var localhost = "peaceful-journey-3521.herokuapp.com";
+	// var localhost = "localhost";
+	// var port = ':1337';
+	var port = '';
 
     var db = {
 
@@ -10,7 +12,7 @@ define(['jquery', 'underscore', 'backbone', 'joinModulView'],
     	socket: function(cfg){
 
 			$.ajax({
-				url: 'http://' + localhost + ':1337/socket/',
+				url: 'http://' + localhost + port + '/socket/',
 				type: "post",
 				data: JSON.stringify(cfg),
 				cache: false,
@@ -26,7 +28,7 @@ define(['jquery', 'underscore', 'backbone', 'joinModulView'],
     	isUserValid: function(user, success, error){
 
 			$.ajax({
-				url: 'http://' + localhost + ':1337/isUserValid/',
+				url: 'http://' + localhost + port + '/isUserValid/',
 				type: "post",
 				data: JSON.stringify(user),
 				cache: false,
@@ -42,7 +44,7 @@ define(['jquery', 'underscore', 'backbone', 'joinModulView'],
     	insertUser: function(user, success, error){
 
 			$.ajax({
-				url: 'http://' + localhost + ':1337/insertUser/',
+				url: 'http://' + localhost + port + '/insertUser/',
 				type: "post",
 				data: JSON.stringify(user),
 				cache: false,
@@ -58,7 +60,7 @@ define(['jquery', 'underscore', 'backbone', 'joinModulView'],
     	insertCompany: function(company, success, error){
 
 			$.ajax({
-				url: 'http://' + localhost + ':1337/insertCompany/',
+				url: 'http://' + localhost + port + '/insertCompany/',
 				type: "post",
 				data: JSON.stringify(company),
 				cache: false,
@@ -74,7 +76,7 @@ define(['jquery', 'underscore', 'backbone', 'joinModulView'],
     	addRoom: function(room, success, error){
 
 			$.ajax({
-				url: 'http://' + localhost + ':1337/addRoom/',
+				url: 'http://' + localhost + port + '/addRoom/',
 				type: "post",
 				data: JSON.stringify(room),
 				cache: false,
@@ -90,7 +92,7 @@ define(['jquery', 'underscore', 'backbone', 'joinModulView'],
     	addAction: function(action, success, error){
 
 			$.ajax({
-				url: 'http://' + localhost + ':1337/addAction/',
+				url: 'http://' + localhost + port + '/addAction/',
 				type: "post",
 				data: JSON.stringify(action),
 				cache: false,
@@ -106,7 +108,7 @@ define(['jquery', 'underscore', 'backbone', 'joinModulView'],
 		getUser: function(user, success, error){
 
 			$.ajax({
-				url: 'http://' + localhost + ':1337/getUser/',
+				url: 'http://' + localhost + port + '/getUser/',
 				type: "post",
 				data: JSON.stringify(user),
 				cache: false,
@@ -122,7 +124,7 @@ define(['jquery', 'underscore', 'backbone', 'joinModulView'],
 		updateRoom: function(cfg, success, error){
 
 			$.ajax({
-				url: 'http://' + localhost + ':1337/updateRoom/',
+				url: 'http://' + localhost + port + '/updateRoom/',
 				type: "post",
 				data: JSON.stringify(cfg),
 				cache: false,
@@ -138,7 +140,7 @@ define(['jquery', 'underscore', 'backbone', 'joinModulView'],
 		updateAction: function(cfg, success, error){
 
 			$.ajax({
-				url: 'http://' + localhost + ':1337/updateAction/',
+				url: 'http://' + localhost + port + '/updateAction/',
 				type: "post",
 				data: JSON.stringify(cfg),
 				cache: false,
@@ -154,7 +156,7 @@ define(['jquery', 'underscore', 'backbone', 'joinModulView'],
 		sendEmail: function(cfg, success, error){
 
 			$.ajax({
-				url: 'http://' + localhost + ':1337/sendEmail/',
+				url: 'http://' + localhost + port + '/sendEmail/',
 				type: "post",
 				data: JSON.stringify(cfg),
 				cache: false,
@@ -170,7 +172,7 @@ define(['jquery', 'underscore', 'backbone', 'joinModulView'],
 		getRooms: function(rooms, success, error){
 
 			$.ajax({
-				url: 'http://' + localhost + ':1337/getRooms/',
+				url: 'http://' + localhost + port + '/getRooms/',
 				type: "post",
 				data: JSON.stringify(rooms),
 				cache: false,
@@ -186,7 +188,7 @@ define(['jquery', 'underscore', 'backbone', 'joinModulView'],
 		getActions: function(actionsArray, success, error){
 
 			$.ajax({
-				url: 'http://' + localhost + ':1337/getActions/',
+				url: 'http://' + localhost + port + '/getActions/',
 				type: "post",
 				data: JSON.stringify(actionsArray),
 				cache: false,
@@ -202,7 +204,7 @@ define(['jquery', 'underscore', 'backbone', 'joinModulView'],
 		isCompanyValid: function(cfg, success, error){
 
 			$.ajax({
-				url: 'http://' + localhost + ':1337/isCompanyValid/',
+				url: 'http://' + localhost + port + '/isCompanyValid/',
 				type: "post",
 				data: JSON.stringify(cfg),
 				cache: false,
