@@ -5,6 +5,11 @@ var express = require('express');
   , fs = require('fs')
   , _ = require('underscore');
 
+io.configure(function () { 
+	io.set("transports", ["xhr-polling"]); 
+	io.set("polling duration", 10); 
+});
+
 // get port and host config
 var config = JSON.parse(fs.readFileSync('config.json'));
 var host = process.env.HOST || config.host;
