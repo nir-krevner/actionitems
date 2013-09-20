@@ -63,7 +63,7 @@ requirejs.config({
     }
 });
 
-requirejs(['jquery', 'loginModul', 'setSocket', 'css!main.css', 'css!lib/bootstrap/css/bootstrap.min.css', 'router', 'bootstrap'], function   ($, loginModul) {
+requirejs(['jquery', 'loginModul', 'setSocket', 'css!main.css', 'css!lib/bootstrap/css/bootstrap.min.css', 'bootstrap', 'router'], function   ($, loginModul) {
 
 
 
