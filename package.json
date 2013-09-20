@@ -12,6 +12,7 @@
     "underscore": "*",
     "mongodb": "*",
     "nodemailer": "*",
+    "mongoskin": "*",
     "mongodb" : "1.1.11"
   },
   "engines": {

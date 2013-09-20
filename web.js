@@ -8,7 +8,7 @@ var express = require('express');
 // get port and host config
 var config = JSON.parse(fs.readFileSync('config.json'));
 var host = process.env.HOST || config.host;
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 1337;
 
 // listen
 // server.listen(port, host);
@@ -21,6 +21,13 @@ app.get('/', function (req, res) {
 });
 
 
+var mongoskin = require('mongoskin');	
+var ObjectID = mongoskin.ObjectID;
+
+if (port == 1337)
+	var db = mongoskin.db('localhost:27017/actionitems', {safe:true});
+else 
+	var db = mongoskin.db('mongodb://heroku:n5t5phxc@paulo.mongohq.com:10031/app18158995', {safe:true});
 
 
 /**
@@ -316,39 +323,23 @@ function getData(cfg, collectionName, callback){
 	console.log('collectionName: ', collectionName);
 	console.log('cfg: ', cfg);
 
-	var ObjectID = require('mongodb').ObjectID;
-	var mongo = require('mongodb');
-	var host = '127.0.0.1';
-	var port = mongo.Connection.DEFAULT_PORT;
-
 	if (cfg._id  && _.isString(cfg._id)){
 		cfg._id = new ObjectID(cfg._id);
 	}
 
-	console.log('mongo.Connection.DEFAULT_PORT: ' + mongo.Connection.DEFAULT_PORT);
-
-	var db = new mongo.Db('actionitems', new mongo.Server(host, port, {}));
 	
-	// open db
-	db.open(function(error){
-		console.log('We are connected ' + host + ':' + port);
 
-		db.collection(collectionName, function(error, collection){
-
-			collection.find(cfg, function(error, cursor){
-				cursor.toArray(function(error, dataRecievedArray){
-					console.log('getData data recieved:', dataRecievedArray);
-					if (dataRecievedArray && dataRecievedArray.length == 0){
-						callback(false);
-					} else {
-						callback(dataRecievedArray);
-					}
-				});
-			});
-
-		});
+	db.collection(collectionName).find(cfg).toArray(function(error, dataRecievedArray){
+		console.log('getData data recieved:', dataRecievedArray);
+		if (dataRecievedArray && dataRecievedArray.length == 0){
+			callback(false);
+		} else {
+			callback(dataRecievedArray);
+		}
 	});
+
 }
+
 
 /**
 * insert data
@@ -357,79 +348,41 @@ function insertData(cfg, collectionName, callback){
 
 	console.log('*** insert data ***');
 
-	var mongo = require('mongodb');
-	var host = '127.0.0.1';
-	var port = mongo.Connection.DEFAULT_PORT;
-	var db = new mongo.Db('actionitems', new mongo.Server(host, port, {}));
+	db.collection(collectionName).insert(cfg, function(error, records){
 
-	db.open(function(error){
-		console.log('We are connected ' + host + ':' + port);
+		console.log('***************************records', records);
+		console.log('data inserted: ', cfg, 'collection: ', collectionName);
 
-		db.collection(collectionName, function(error, collection){
-			collection.insert(cfg, {safe: true}, function(error, records){
+		io.sockets.emit('dbChanged', { type: collectionName });
 
-				console.log('***************************records', records);
-				console.log('data inserted: ', cfg, 'collection: ', collectionName);
-
-				io.sockets.emit('dbChanged', { type: collectionName });
-
-				callback(records);
-			});
-		});
+		callback(records);
 	});
+
 }
 
 
 /* update data */
 function updateData(cfg, set, collectionName, callback){
 
-	
-
 	console.log('*** getData ***');
 	console.log('collectionName: ', collectionName);
 	console.log('cfg: ', cfg);
-
-	var ObjectID = require('mongodb').ObjectID;
-	var mongo = require('mongodb');
-	var host = '127.0.0.1';
-	var port = mongo.Connection.DEFAULT_PORT;
 
 	if (cfg._id && _.isString(cfg._id)){
 		cfg._id = new ObjectID(cfg._id);
 	}
 
-	console.log('mongo.Connection.DEFAULT_PORT: ' + mongo.Connection.DEFAULT_PORT);
-
-	var db = new mongo.Db('actionitems', new mongo.Server(host, port, {}));
-	
-	// open db
-	db.open(function(error){
-		console.log('We are connected ' + host + ':' + port);
-
-		db.collection(collectionName, function(error, collection){
-			// update !
-			collection.update(cfg, { $set : set }, {}, function(){
-
-				// find and return the document
-				collection.find(cfg, function(error, cursor){
-					cursor.toArray(function(error, dataRecievedArray){
-						console.log('update data -  data recieved:', dataRecievedArray);
-						if (dataRecievedArray && dataRecievedArray.length == 0){
-							callback && callback(false);
-						} else {
-							callback && callback(dataRecievedArray[0]);
-						}
-					});
-				});
-
-			});
-
-			
+	db.collection(collectionName).update(cfg, { $set : set }, function(){
+		getData(cfg, collectionName, function(dataRecievedArray){
+			if (dataRecievedArray && dataRecievedArray.length == 0){
+				callback && callback(false);
+			} else {
+				callback && callback(dataRecievedArray[0]);
+			}
 
 		});
 	});
 }
-
 
 
 /**

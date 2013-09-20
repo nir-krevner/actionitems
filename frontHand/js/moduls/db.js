@@ -1,13 +1,15 @@
 define(['jquery', 'underscore', 'backbone', 'joinModulView'], 
 	function($, _, Backbone, joinModulView) {
 
-	var localhost = "peaceful-journey-3521.herokuapp.com";
-	// var localhost = "localhost";
-	// var port = ':1337';
-	var port = '';
+	if (location.href.indexOf('heroku') != -1){
+		var port = '';
+		var localhost = "peaceful-journey-3521.herokuapp.com";
+	} else {
+		var localhost = "localhost";
+		var port = ':1337';	
+	}
 
     var db = {
-
 
     	socket: function(cfg){
 
