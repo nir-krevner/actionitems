@@ -3,7 +3,7 @@ define(['jquery', 'underscore', 'backbone', 'joinModulView'],
 
 	if (location.href.indexOf('heroku') != -1){
 		var port = '';
-		var localhost = "peaceful-journey-3521.herokuapp.com";
+		var localhost = "actionitems.herokuapp.com";
 	} else {
 		var localhost = "localhost";
 		var port = ':1337';	
