@@ -2,7 +2,7 @@ define(['jquery', 'events'],
 function($, events) {
 
 	var host = "http://peaceful-journey-3521.herokuapp.com/";
-	// var host = "localhost:1337";
+	// var host = "http://localhost:1337";
 
 	var socket = Backbone.Router.extend({
 
@@ -10,7 +10,7 @@ function($, events) {
 
 			$(document).ready(function(){
 
-				var socket = io.connect('http://' + host );
+				var socket = io.connect(host);
 				console.log('socket active');
 
 				socket.on('addRoom', function (data) {
