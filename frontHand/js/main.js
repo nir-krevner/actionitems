@@ -51,6 +51,11 @@ requirejs.config({
             exports: 'Backbone'
         },
 
+        'bootstrap' : {
+            deps: ['jquery'],
+            exports: 'bootstrap'
+        },
+
         'underscore' : {
             exports: '_'
         },
@@ -63,7 +68,7 @@ requirejs.config({
     }
 });
 
-requirejs(['jquery', 'loginModul', 'setSocket', 'css!main.css', 'css!lib/bootstrap/css/bootstrap.min.css', 'bootstrap', 'router'], function   ($, loginModul) {
+requirejs(['jquery', 'loginModul', 'setSocket', 'css!main.css', 'css!lib/bootstrap/css/bootstrap.min.css', 'router', 'bootstrap'], function   ($, loginModul) {
 
 
 
