@@ -1,8 +1,8 @@
 define(['jquery', 'events'], 
 function($, events) {
 
-	// var localhost = "217.132.95.179";
-	var localhost = "localhost";
+	var localhost = "http://peaceful-journey-3521.herokuapp.com/";
+	// var localhost = "localhost";
 
 	var socket = Backbone.Router.extend({
 
