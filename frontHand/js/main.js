@@ -62,6 +62,10 @@ requirejs.config({
 
         'mustache' : {
             exports: 'Mustache'
+        },
+
+        'jqueryui' : {
+            deps: ['jquery']
         }
 
 

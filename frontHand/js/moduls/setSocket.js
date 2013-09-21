@@ -1,8 +1,10 @@
 define(['jquery', 'events'], 
 function($, events) {
 
-	var host = "http://actionitems.herokuapp.com";
-	// var host = "http://localhost:1337";
+	if (location.href.indexOf('heroku') != -1)
+		var host = "http://actionitems.herokuapp.com";
+	else
+		var host = "http://localhost:1337";
 
 	var socket = Backbone.Router.extend({
 
