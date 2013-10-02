@@ -249,6 +249,29 @@ app.post("/getActions/", function(request, response){
 
 
 /**
+* delete action API
+*/
+app.post("/deleteAction/", function(request, response){
+
+	var postData = '';
+
+	request.addListener("data", function(postDataChunk){
+		postData += postDataChunk;
+		console.log('recieved post data chunk');
+	});
+
+	request.addListener("end", function(){
+		console.log('recieved ALL post data: ', postData);
+		var cfg = JSON.parse(postData);
+
+		deleteData(cfg, 'action', function(data){
+			response.send(data);
+		});
+
+	});
+});
+
+/**
 * update action API
 */
 app.post("/updateAction/", function(request, response){
@@ -387,6 +410,23 @@ function updateData(cfg, set, collectionName, callback){
 
 		});
 	});
+}
+
+/* delete data */
+function deleteData(cfg, collectionName, callback){
+
+	console.log('*** deleteData ***');
+	console.log('collectionName: ', collectionName);
+	console.log('cfg: ', cfg);
+
+	if (cfg._id && _.isString(cfg._id)){
+		cfg._id = new ObjectID(cfg._id);
+	}
+
+	db.collection(collectionName).remove(cfg, function(){
+		callback && callback();
+	});
+	
 }
 
 

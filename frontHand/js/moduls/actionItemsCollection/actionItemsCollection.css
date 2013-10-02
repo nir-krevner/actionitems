@@ -60,6 +60,10 @@
 .singleAction.NS{
 	margin-left: 0%;
 }
+
+.singleAction.NS .delete{
+	display: none;
+}
 /*NS END*/
 
 /*IP*/
@@ -74,6 +78,10 @@
 
 .singleAction.IP{
 	margin-left: 33.5%;
+}
+
+.singleAction.IP .delete{
+	display: none;
 }
 /*IP END*/
 
@@ -90,7 +98,13 @@
 .singleAction.DN{
 	margin-left: 67%;
 }
+
+.singleAction.DN .delete{
+	position: relative;
+	top: -1px;
+}
 /*DN END*/
+
 
 /*ICONS*/
 .singleAction .icons{

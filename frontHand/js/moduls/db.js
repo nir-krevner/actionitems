@@ -155,6 +155,22 @@ define(['jquery', 'underscore', 'backbone', 'joinModulView'],
 
 		},
 
+		deleteAction: function(cfg, success, error){
+
+			$.ajax({
+				url: 'http://' + localhost + port + '/deleteAction/',
+				type: "post",
+				data: JSON.stringify(cfg),
+				cache: false,
+				timeout: 5000,
+				success: success,
+				error: function(jqXHR, textStatus, errorThrown) {
+					alert('error ' + textStatus + " " + errorThrown);
+				}
+			});
+
+		},
+
 		sendEmail: function(cfg, success, error){
 
 			$.ajax({

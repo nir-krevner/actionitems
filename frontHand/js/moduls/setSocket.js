@@ -34,6 +34,11 @@ function($, events) {
 					events.trigger('onUpdateAction', data);
 				});
 
+				socket.on('deleteAction', function(data){
+					console.log('onDeleteAction', data);
+					events.trigger('onDeleteAction', data);
+				});
+
 				socket.on('updateUsers', function(data){
 					console.log('onUpdateUsers', data);
 					events.trigger('onUpdateUsers', data);

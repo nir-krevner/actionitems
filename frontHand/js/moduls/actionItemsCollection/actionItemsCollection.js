@@ -27,6 +27,7 @@ function($, dontCare, _, Backbone, db, Mustache, dialog, loginModul, events, uti
 			this.setSortable();
 			this.show();
 			events.on('onUpdateAction', _.bind(function(d){this.onUpdateAction(d);}, this));
+			events.on('onDeleteAction', _.bind(function(d){this.onDeleteAction(d);}, this));
 			events.on('compress', _.bind(function(d){this.compress(d);}, this));
 			events.on('decompress', _.bind(function(d){this.decompress(d);}, this));
 		},
@@ -155,12 +156,29 @@ function($, dontCare, _, Backbone, db, Mustache, dialog, loginModul, events, uti
 							break;
 						case 'edit':
 							that.edit($ele, actionId);
+							break;
+						case 'delete':
+							that.delete($ele, actionId);
 					}
 					
 				});
 
 			});
 
+		},
+
+		delete: function($ele, actionId){
+			db.deleteAction({
+					_id: actionId
+			}, function(data){
+				// emit socket
+				db.socket({
+					emit: 'deleteAction',
+					args: {
+						actionId: actionId,
+					}
+				});
+			});
 		},
 
 		edit: function($ele, actionId){
@@ -348,9 +366,14 @@ function($, dontCare, _, Backbone, db, Mustache, dialog, loginModul, events, uti
 
 		},
 
+		onDeleteAction: function(data){
+			console.log('onDeleteAction', data);
+			$('div[actionid="' + data.actionId + '"]').remove();
+		},
+
 		onUpdateAction: function(data){
 
-			console.log('onUpdateAction', data)
+			console.log('onUpdateAction', data);
 
 			var updatedActionData = data.actionData,
 				action, actionIdx;
@@ -452,6 +475,7 @@ function($, dontCare, _, Backbone, db, Mustache, dialog, loginModul, events, uti
 			console.log('actionItemsCollection dispose');
 			this.$el.unbind('sortable');
 			events.off('onUpdateAction');
+			events.off('onDeleteAction');
 			events.off('compress');
 			events.off('decompress');
 
@@ -459,9 +483,7 @@ function($, dontCare, _, Backbone, db, Mustache, dialog, loginModul, events, uti
 				var $ele = $(ele);
 				$ele.unbind('mouseover');
 				$ele.unbind('mouseout');
-				$ele.find('.right').unbind('click');
-				$ele.find('.left').unbind('click');
-				$ele.find('.edit').unbind('click');
+				$ele.find('.menuController').unbind('mousedown');
 			});
 
 
